@@ -1,0 +1,6 @@
+@SaneioSolucoes.API_HostAddress = http://localhost:5187
+
+GET {{SaneioSolucoes.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
