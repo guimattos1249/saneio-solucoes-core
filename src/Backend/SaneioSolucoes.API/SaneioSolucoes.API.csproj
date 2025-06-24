@@ -10,4 +10,10 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\SaneioSolucoes.Communication\SaneioSolucoes.Communication.csproj" />
+    <ProjectReference Include="..\..\Shared\SaneioSolucoes.Exceptions\SaneioSolucoes.Exceptions.csproj" />
+    <ProjectReference Include="..\SaneioSolucoes.Application\SaneioSolucoes.Application.csproj" />
+  </ItemGroup>
+
 </Project>
