@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
@@ -16,10 +16,6 @@
     <ProjectReference Include="..\..\Shared\SaneioSolucoes.Exceptions\SaneioSolucoes.Exceptions.csproj" />
     <ProjectReference Include="..\SaneioSolucoes.Application\SaneioSolucoes.Application.csproj" />
     <ProjectReference Include="..\SaneioSolucoes.Infrastructure\SaneioSolucoes.Infrastructure.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>
