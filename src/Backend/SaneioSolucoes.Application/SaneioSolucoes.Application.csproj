@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="OfxSharpLib" Version="0.9.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\Shared\SaneioSolucoes.Communication\SaneioSolucoes.Communication.csproj" />
     <ProjectReference Include="..\..\Shared\SaneioSolucoes.Exceptions\SaneioSolucoes.Exceptions.csproj" />
     <ProjectReference Include="..\SaneioSolucoes.Domain\SaneioSolucoes.Domain.csproj" />
