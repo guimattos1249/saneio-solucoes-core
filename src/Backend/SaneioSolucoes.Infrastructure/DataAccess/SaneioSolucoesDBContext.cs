@@ -7,6 +7,7 @@ namespace SaneioSolucoes.Infrastructure.DataAccess
     {
         public SaneioSolucoesDBContext(DbContextOptions options) : base(options) { }
 
+        public DbSet<Tenant> Tenants { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Company> Companies { get; set; }
         public DbSet<Transaction> Transactions { get; set; }

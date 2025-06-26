@@ -7,6 +7,7 @@ using SaneioSolucoes.Domain.Security.Cryptography;
 using SaneioSolucoes.Domain.Security.Tokens;
 using SaneioSolucoes.Domain.Services.LoggedUser;
 using SaneioSolucoes.Infrastructure.DataAccess;
+using SaneioSolucoes.Infrastructure.DataAccess.Repositories;
 using SaneioSolucoes.Infrastructure.Extensions;
 using SaneioSolucoes.Infrastructure.Security.Cryptography;
 using SaneioSolucoes.Infrastructure.Security.Tokens.Access.Generator;
@@ -37,14 +38,17 @@ namespace SaneioSolucoes.Infrastructure
             services.AddDbContext<SaneioSolucoesDBContext>(dbContextOptions =>
             {
                 var connectionString = configuration.ConnectionString();
-                var serverVersion = new MySqlServerVersion(new Version(8, 0, 42));
-                dbContextOptions.UseMySql(connectionString, serverVersion);
+                //var serverVersion = new MySqlServerVersion(new Version(8, 0, 42));
+                //dbContextOptions.UseMySql(connectionString, serverVersion);
+                dbContextOptions.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
             });
         }
 
         private static void AddRepositories(IServiceCollection services)
         {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IUserReadOnlyRepository, UserRepository>();
+            services.AddScoped<ITenantReadOnlyRepository, TenantRepository>();
         }
 
         private static void AddFluentMigrator(IServiceCollection services, IConfiguration configuration)
