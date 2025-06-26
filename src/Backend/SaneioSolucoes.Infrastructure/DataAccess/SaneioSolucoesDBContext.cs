@@ -1,0 +1,19 @@
+﻿using Microsoft.EntityFrameworkCore;
+using SaneioSolucoes.Domain.Entities;
+
+namespace SaneioSolucoes.Infrastructure.DataAccess
+{
+    public class SaneioSolucoesDBContext : DbContext
+    {
+        public SaneioSolucoesDBContext(DbContextOptions options) : base(options) { }
+
+        public DbSet<User> Users { get; set; }
+        public DbSet<Company> Companies { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(SaneioSolucoesDBContext).Assembly);
+        }
+    }
+}
