@@ -1,6 +1,7 @@
 using Microsoft.OpenApi.Models;
 using MyRecipeBook.API.Token;
 using SaneioSolucoes.API.Converters;
+using SaneioSolucoes.Application;
 using SaneioSolucoes.Domain.Security.Tokens;
 using SaneioSolucoes.Infrastructure;
 using SaneioSolucoes.Infrastructure.Extensions;
@@ -15,6 +16,12 @@ builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializ
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "SaneioSolucoes API",
+        Version = "v1"
+    });
+
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = @"Jwt Authorization header using the Bearer scheme.
@@ -45,8 +52,8 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-//builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionFilter)));
-//builder.Services.AddApplication(builder.Configuration);
+builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionFilter)));
+builder.Services.AddApplication(builder.Configuration);
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddScoped<ITokenProvider, HttpContextTokenValue>();
 

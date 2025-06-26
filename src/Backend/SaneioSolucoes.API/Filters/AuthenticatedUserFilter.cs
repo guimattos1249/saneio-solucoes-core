@@ -2,6 +2,8 @@
 using SaneioSolucoes.Domain.Extensions;
 using SaneioSolucoes.Domain.Repositories;
 using SaneioSolucoes.Domain.Security.Tokens;
+using SaneioSolucoes.Exceptions;
+using SaneioSolucoes.Exceptions.ExceptionBase;
 
 namespace SaneioSolucoes.API.Filters
 {
@@ -24,10 +26,8 @@ namespace SaneioSolucoes.API.Filters
             var existUser = await _repository.ExistActiveUserWithIdentifier(authTokenInfo.TenantId, authTokenInfo.UserId);
 
             if (existUser.IsFalse())
-            {
-                //throw new MyRecipeBookException(ResourceMessageExceptions.USER_WITHOUT_PERMISSION_ACCESS_RESOURCE);
-                throw new Exception("USER_WITHOUT_PERMISSION_ACCESS_RESOURCE");
-            }
+                throw new SaneioSolucoesException(ResourceMessageExceptions.USER_WITHOUT_PERMISSION_ACCESS_RESOURCE);
+            
         }
 
         private static string TokenOnRequest(AuthorizationFilterContext context)
@@ -36,8 +36,7 @@ namespace SaneioSolucoes.API.Filters
 
             if (string.IsNullOrWhiteSpace(authentication))
             {
-                //throw new MyRecipeBookException(ResourceMessageExceptions.NO_TOKEN);
-                throw new Exception("No Token Provided");
+                throw new SaneioSolucoesException(ResourceMessageExceptions.NO_TOKEN);
             }
 
             return authentication["Bearer ".Length..].Trim();
