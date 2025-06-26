@@ -1,0 +1,79 @@
+﻿using FluentMigrator.Runner;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using SaneioSolucoes.Domain.Repositories;
+using SaneioSolucoes.Domain.Security.Cryptography;
+using SaneioSolucoes.Domain.Security.Tokens;
+using SaneioSolucoes.Domain.Services.LoggedUser;
+using SaneioSolucoes.Infrastructure.DataAccess;
+using SaneioSolucoes.Infrastructure.Extensions;
+using SaneioSolucoes.Infrastructure.Security.Cryptography;
+using SaneioSolucoes.Infrastructure.Security.Tokens.Access.Generator;
+using SaneioSolucoes.Infrastructure.Security.Tokens.Access.Validator;
+using SaneioSolucoes.Infrastructure.Services.LoggedUser;
+using System.Reflection;
+
+namespace SaneioSolucoes.Infrastructure
+{
+    public static class DependencyInjectionExtension
+    {
+        public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+        {
+            AddPasswordEncrypter(services, configuration);
+            AddRepositories(services);
+            AddTokens(services, configuration);
+            AddLoggedUser(services);
+
+            if (configuration.IsUnitTestEnviroment())
+                return;
+
+            AddDbContext(services, configuration);
+            AddFluentMigrator(services, configuration);
+        }
+
+        private static void AddDbContext(IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddDbContext<SaneioSolucoesDBContext>(dbContextOptions =>
+            {
+                var connectionString = configuration.ConnectionString();
+                var serverVersion = new MySqlServerVersion(new Version(8, 0, 42));
+                dbContextOptions.UseMySql(connectionString, serverVersion);
+            });
+        }
+
+        private static void AddRepositories(IServiceCollection services)
+        {
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+        }
+
+        private static void AddFluentMigrator(IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddFluentMigratorCore().ConfigureRunner(options =>
+            {
+                var connectionString = configuration.ConnectionString();
+                options.AddMySql8()
+                .WithGlobalConnectionString(connectionString)
+                .ScanIn(Assembly.Load("SaneioSolucoes.Infrastructure")).For.All();
+            });
+        }
+
+        private static void AddTokens(IServiceCollection services, IConfiguration configuration)
+        {
+            var expirationTimeMinutes = configuration.GetValue<uint>("Settings:Jwt:ExpirationTimeMinutes");
+            var signingKey = configuration.GetValue<string>("Settings:Jwt:SigningKey");
+
+            services.AddScoped<IAccessTokenGenerator>(option => new JwtTokenGenerator(expirationTimeMinutes, signingKey!));
+            services.AddScoped<IAccessTokenValidator>(option => new JwtTokenValidator(signingKey!));
+        }
+
+        private static void AddLoggedUser(IServiceCollection services) => services.AddScoped<ILoggedUser, LoggedUser>();
+
+        private static void AddPasswordEncrypter(IServiceCollection services, IConfiguration configuration)
+        {
+            var additionalKey = configuration.GetValue<string>("Settings:Password:AdditionalKey");
+
+            services.AddScoped<IPasswordEncripter>(options => new Sha512Encripter(additionalKey!));
+        }
+    }
+}
