@@ -12,21 +12,21 @@ namespace SaneioSolucoes.Infrastructure.Migrations.Versions
                 .WithColumn("TradeName").AsString(255).NotNullable()
                 .WithColumn("Description").AsString(255).NotNullable()
                 .WithColumn("DocumentNumber").AsString(255).NotNullable()
-                .WithColumn("Slug").AsString(255).NotNullable()
+                .WithColumn("Slug").AsString(255).NotNullable().Unique()
                 .WithColumn("Email").AsString(255).NotNullable();
 
             CreateTable("Users")
                 .WithColumn("Name").AsString(255).NotNullable()
                 .WithColumn("Email").AsString(255).NotNullable()
                 .WithColumn("Password").AsString(2000).NotNullable()
-                .WithColumn("TenantId").AsInt64().NotNullable().ForeignKey("FK_User_Tenant_Id", "Tenants", "Id")
+                .WithColumn("TenantId").AsGuid().NotNullable().ForeignKey("FK_User_Tenant_Id", "Tenants", "Id")
                 .OnDelete(System.Data.Rule.Cascade);
 
             CreateTable("Companies")
                 .WithColumn("LegalName").AsString(255).NotNullable()
                 .WithColumn("TradeName").AsString(255).NotNullable()
                 .WithColumn("Cnpj").AsString(255).NotNullable()
-                .WithColumn("TenantId").AsInt64().NotNullable().ForeignKey("FK_Company_Tenant_Id", "Tenants", "Id")
+                .WithColumn("TenantId").AsGuid().NotNullable().ForeignKey("FK_Company_Tenant_Id", "Tenants", "Id")
                 .OnDelete(System.Data.Rule.Cascade);
 
             CreateTable("Transactions")
@@ -36,9 +36,9 @@ namespace SaneioSolucoes.Infrastructure.Migrations.Versions
                 .WithColumn("Bank").AsString(255).NotNullable()
                 .WithColumn("TransactionId").AsString(255).NotNullable()
                 .WithColumn("Type").AsInt32().Nullable()
-                .WithColumn("UserId").AsInt64().NotNullable().ForeignKey("FK_Transacition_User_Id", "Users", "Id")
-                .WithColumn("CompanyId").AsInt64().NotNullable().ForeignKey("FK_Transacition_Company_Id", "Companies", "Id")
-                .WithColumn("TenentId").AsInt64().NotNullable().ForeignKey("FK_Transacition_Tenant_Id", "Tenants", "Id")
+                .WithColumn("UserId").AsGuid().NotNullable().ForeignKey("FK_Transacition_User_Id", "Users", "Id")
+                .WithColumn("CompanyId").AsGuid().NotNullable().ForeignKey("FK_Transacition_Company_Id", "Companies", "Id")
+                .WithColumn("TenentId").AsGuid().NotNullable().ForeignKey("FK_Transacition_Tenant_Id", "Tenants", "Id")
                 .OnDelete(System.Data.Rule.Cascade);
         }
     }

@@ -8,7 +8,7 @@ namespace SaneioSolucoes.Infrastructure.Migrations.Versions
         protected ICreateTableColumnOptionOrWithColumnSyntax CreateTable(string table)
         {
             return Create.Table(table)
-                .WithColumn("Id").AsInt64().PrimaryKey().Identity()
+                .WithColumn("Id").AsGuid().PrimaryKey()
                 .WithColumn("CreatedOn").AsDateTime().NotNullable()
                 .WithColumn("Active").AsBoolean().NotNullable();
         }
