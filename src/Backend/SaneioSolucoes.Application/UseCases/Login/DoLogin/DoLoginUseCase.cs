@@ -31,7 +31,7 @@ namespace SaneioSolucoes.Application.UseCases.Login.DoLogin
         {
             request.Password = _passwordEncripter.Encrypt(request.Password);
 
-            var tenant = await _tenantRepository.GetTenantIdByslug(request.TenantSlug);
+            var tenant = await _tenantRepository.GetTenantIdBySlug(request.TenantSlug);
 
             if (tenant == null)
                 throw new SaneioSolucoesException(ResourceMessageExceptions.INVALID_TENANT_SLUG);

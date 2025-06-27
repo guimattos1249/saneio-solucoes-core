@@ -1,6 +1,7 @@
 using Microsoft.OpenApi.Models;
 using MyRecipeBook.API.Token;
 using SaneioSolucoes.API.Converters;
+using SaneioSolucoes.API.Filters;
 using SaneioSolucoes.Application;
 using SaneioSolucoes.Domain.Security.Tokens;
 using SaneioSolucoes.Infrastructure;

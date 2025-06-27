@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using SaneioSolucoes.Application.UseCases.Login.DoLogin;
 using SaneioSolucoes.Application.Services.AutoMapper;
+using SaneioSolucoes.Application.UseCases.Tenant.Register;
 
 namespace SaneioSolucoes.Application
 {
@@ -24,6 +25,7 @@ namespace SaneioSolucoes.Application
         private static void AddUseCases(IServiceCollection services)
         {
             services.AddScoped<IDoLoginUseCase, DoLoginUseCase>();
+            services.AddScoped<IRegisterTenantUseCase, RegisterTenantUseCase>();
         }
     }
 }
