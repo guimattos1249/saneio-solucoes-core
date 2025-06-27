@@ -1,4 +1,6 @@
-﻿namespace SaneioSolucoes.Domain.Entities
+﻿using SaneioSolucoes.Domain.Enums;
+
+namespace SaneioSolucoes.Domain.Entities
 {
     public class Tenant : EntityBase
     {
@@ -7,6 +9,6 @@
         public string DocumentNumber { get; set; } = string.Empty;
         public string Slug { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
-        public string Plan { get; set; } = string.Empty;
+        public PlanType Plan { get; set; }
     }
 }
