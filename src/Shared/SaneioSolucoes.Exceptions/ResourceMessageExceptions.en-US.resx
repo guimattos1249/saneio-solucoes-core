@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DESCRIPTION_EMPTY" xml:space="preserve">
+    <value>Description empty</value>
+  </data>
+  <data name="INVALID_DOCUMENT_NUMBER" xml:space="preserve">
+    <value>Invalid document number</value>
+  </data>
   <data name="EMAIL_OR_PASSWORD_INDVALID" xml:space="preserve">
     <value>Email or Password invalid</value>
   </data>
@@ -132,10 +138,28 @@
   <data name="PASSWORD_LENGTH" xml:space="preserve">
     <value>Password must have at least 6 characters</value>
   </data>
+  <data name="TRADE_NAME_EMPTY" xml:space="preserve">
+    <value>Trade name empty</value>
+  </data>
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Unknown error</value>
   </data>
   <data name="USER_WITHOUT_PERMISSION_ACCESS_RESOURCE" xml:space="preserve">
     <value>User without permission</value>
+  </data>
+  <data name="EMPTY_SLUG" xml:space="preserve">
+    <value>Empty Slug</value>
+  </data>
+  <data name="EMPTY_EMAIL" xml:space="preserve">
+    <value>Empty email</value>
+  </data>
+  <data name="INVALID_EMAIL" xml:space="preserve">
+    <value>Invalid Email</value>
+  </data>
+  <data name="TENANT_EMAIL_OR_SLUG_ALREADY_REGISTERED" xml:space="preserve">
+    <value>Tenant email or slug already registered</value>
+  </data>
+  <data name="PLAN_NOT_SUPPORTED" xml:space="preserve">
+    <value>Plan not supported</value>
   </data>
 </root>

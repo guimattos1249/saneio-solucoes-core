@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DESCRIPTION_EMPTY" xml:space="preserve">
+    <value>Descrição vazia</value>
+  </data>
+  <data name="INVALID_DOCUMENT_NUMBER" xml:space="preserve">
+    <value>CNPJ Inválido</value>
+  </data>
   <data name="EMAIL_OR_PASSWORD_INDVALID" xml:space="preserve">
     <value>Email ou Senha inválidos</value>
   </data>
@@ -132,10 +138,28 @@
   <data name="PASSWORD_LENGTH" xml:space="preserve">
     <value>A senha deve ter no mínimo 6 caracteres</value>
   </data>
+  <data name="TRADE_NAME_EMPTY" xml:space="preserve">
+    <value>Nome Fantasia inválido</value>
+  </data>
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Erro desconhecido</value>
   </data>
   <data name="USER_WITHOUT_PERMISSION_ACCESS_RESOURCE" xml:space="preserve">
     <value>Usuário sem acesso ao recurso</value>
+  </data>
+  <data name="EMPTY_SLUG" xml:space="preserve">
+    <value>Identificador da empresa vazio</value>
+  </data>
+  <data name="EMPTY_EMAIL" xml:space="preserve">
+    <value>Email Vazio</value>
+  </data>
+  <data name="INVALID_EMAIL" xml:space="preserve">
+    <value>Email inválido</value>
+  </data>
+  <data name="TENANT_EMAIL_OR_SLUG_ALREADY_REGISTERED" xml:space="preserve">
+    <value>Email ou identificador da empresa já cadastrado</value>
+  </data>
+  <data name="PLAN_NOT_SUPPORTED" xml:space="preserve">
+    <value>Plano inválido</value>
   </data>
 </root>

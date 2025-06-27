@@ -61,11 +61,56 @@ namespace SaneioSolucoes.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Descrição vazia.
+        /// </summary>
+        public static string DESCRIPTION_EMPTY {
+            get {
+                return ResourceManager.GetString("DESCRIPTION_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email ou Senha inválidos.
         /// </summary>
         public static string EMAIL_OR_PASSWORD_INDVALID {
             get {
                 return ResourceManager.GetString("EMAIL_OR_PASSWORD_INDVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email Vazio.
+        /// </summary>
+        public static string EMPTY_EMAIL {
+            get {
+                return ResourceManager.GetString("EMPTY_EMAIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Identificador da empresa vazio.
+        /// </summary>
+        public static string EMPTY_SLUG {
+            get {
+                return ResourceManager.GetString("EMPTY_SLUG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CNPJ Inválido.
+        /// </summary>
+        public static string INVALID_DOCUMENT_NUMBER {
+            get {
+                return ResourceManager.GetString("INVALID_DOCUMENT_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email inválido.
+        /// </summary>
+        public static string INVALID_EMAIL {
+            get {
+                return ResourceManager.GetString("INVALID_EMAIL", resourceCulture);
             }
         }
         
@@ -102,6 +147,33 @@ namespace SaneioSolucoes.Exceptions {
         public static string PASSWORD_LENGTH {
             get {
                 return ResourceManager.GetString("PASSWORD_LENGTH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plano inválido.
+        /// </summary>
+        public static string PLAN_NOT_SUPPORTED {
+            get {
+                return ResourceManager.GetString("PLAN_NOT_SUPPORTED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email ou identificador da empresa já cadastrado.
+        /// </summary>
+        public static string TENANT_EMAIL_OR_SLUG_ALREADY_REGISTERED {
+            get {
+                return ResourceManager.GetString("TENANT_EMAIL_OR_SLUG_ALREADY_REGISTERED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nome Fantasia inválido.
+        /// </summary>
+        public static string TRADE_NAME_EMPTY {
+            get {
+                return ResourceManager.GetString("TRADE_NAME_EMPTY", resourceCulture);
             }
         }
         
