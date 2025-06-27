@@ -51,7 +51,7 @@ namespace SaneioSolucoes.Application.UseCases.Tenant.Register
 
             var result = validator.Validate(request);
 
-            var existTenant = await _readOnlyRepository.ExistsActiveTenantBySlugOrEmail(request.Email, request.Email);
+            var existTenant = await _readOnlyRepository.ExistsActiveTenantBySlugOrEmail(request.Slug, request.Email);
 
             if (existTenant)
                 result.Errors.Add(
