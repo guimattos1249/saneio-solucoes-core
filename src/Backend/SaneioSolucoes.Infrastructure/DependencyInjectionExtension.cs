@@ -49,6 +49,7 @@ namespace SaneioSolucoes.Infrastructure
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IUserReadOnlyRepository, UserRepository>();
             services.AddScoped<ITenantReadOnlyRepository, TenantRepository>();
+            services.AddScoped<ITenantWriteOnlyRepository, TenantRepository>();
         }
 
         private static void AddFluentMigrator(IServiceCollection services, IConfiguration configuration)

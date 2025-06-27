@@ -10,10 +10,11 @@ namespace SaneioSolucoes.Infrastructure.Migrations.Versions
         {
             CreateTable("Tenants")
                 .WithColumn("TradeName").AsString(255).NotNullable()
-                .WithColumn("Description").AsString(255).NotNullable()
+                .WithColumn("Description").AsString(255).Nullable()
                 .WithColumn("DocumentNumber").AsString(255).NotNullable()
                 .WithColumn("Slug").AsString(255).NotNullable().Unique()
-                .WithColumn("Email").AsString(255).NotNullable();
+                .WithColumn("Email").AsString(255).NotNullable().Unique()
+                .WithColumn("Plan").AsInt32().NotNullable();
 
             CreateTable("Users")
                 .WithColumn("Name").AsString(255).NotNullable()
