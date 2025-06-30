@@ -16,6 +16,8 @@ namespace SaneioSolucoes.Application.Services.AutoMapper
         private void RequestToDomain()
         {
             CreateMap<RequestRegisterTenantJson, Domain.Entities.Tenant>();
+            CreateMap<RequestRegisterUserJson, Domain.Entities.User>()
+                .ForMember(dest => dest.Password, opt => opt.Ignore());
         }
 
         private void DomainToResponse()

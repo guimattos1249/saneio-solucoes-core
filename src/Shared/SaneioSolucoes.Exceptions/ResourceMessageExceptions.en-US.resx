@@ -148,7 +148,7 @@
     <value>User without permission</value>
   </data>
   <data name="EMPTY_SLUG" xml:space="preserve">
-    <value>Empty Slug</value>
+    <value>Empty slug</value>
   </data>
   <data name="EMPTY_EMAIL" xml:space="preserve">
     <value>Empty email</value>
@@ -161,5 +161,17 @@
   </data>
   <data name="PLAN_NOT_SUPPORTED" xml:space="preserve">
     <value>Plan not supported</value>
+  </data>
+  <data name="EMPTY_NAME" xml:space="preserve">
+    <value>Empty name</value>
+  </data>
+  <data name="EMPTY_PASSWORD" xml:space="preserve">
+    <value>Empty password</value>
+  </data>
+  <data name="EMAIL_ALREADY_REGISTERED" xml:space="preserve">
+    <value>Email Already registered</value>
+  </data>
+  <data name="PASSWORD_DIFFRENT_CURRENT_PASSWORD" xml:space="preserve">
+    <value>New password is different the actual password</value>
   </data>
 </root>

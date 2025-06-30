@@ -1,4 +1,4 @@
-﻿namespace SaneioSolucoes.Domain.Repositories
+﻿namespace SaneioSolucoes.Domain.Repositories.Tenant
 {
     public interface ITenantWriteOnlyRepository
     {

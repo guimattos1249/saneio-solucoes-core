@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SaneioSolucoes.Domain.Entities;
-using SaneioSolucoes.Domain.Repositories;
+using SaneioSolucoes.Domain.Repositories.Tenant;
 
 namespace SaneioSolucoes.Infrastructure.DataAccess.Repositories
 {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using SaneioSolucoes.Domain.Extensions;
-using SaneioSolucoes.Domain.Repositories;
+using SaneioSolucoes.Domain.Repositories.User;
 using SaneioSolucoes.Domain.Security.Tokens;
 using SaneioSolucoes.Exceptions;
 using SaneioSolucoes.Exceptions.ExceptionBase;

@@ -70,6 +70,15 @@ namespace SaneioSolucoes.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email já registrado.
+        /// </summary>
+        public static string EMAIL_ALREADY_REGISTERED {
+            get {
+                return ResourceManager.GetString("EMAIL_ALREADY_REGISTERED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email ou Senha inválidos.
         /// </summary>
         public static string EMAIL_OR_PASSWORD_INDVALID {
@@ -84,6 +93,24 @@ namespace SaneioSolucoes.Exceptions {
         public static string EMPTY_EMAIL {
             get {
                 return ResourceManager.GetString("EMPTY_EMAIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nome vazio.
+        /// </summary>
+        public static string EMPTY_NAME {
+            get {
+                return ResourceManager.GetString("EMPTY_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Senha vazia.
+        /// </summary>
+        public static string EMPTY_PASSWORD {
+            get {
+                return ResourceManager.GetString("EMPTY_PASSWORD", resourceCulture);
             }
         }
         
@@ -129,6 +156,15 @@ namespace SaneioSolucoes.Exceptions {
         public static string NO_TOKEN {
             get {
                 return ResourceManager.GetString("NO_TOKEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A nova senha difere da senha atual.
+        /// </summary>
+        public static string PASSWORD_DIFFRENT_CURRENT_PASSWORD {
+            get {
+                return ResourceManager.GetString("PASSWORD_DIFFRENT_CURRENT_PASSWORD", resourceCulture);
             }
         }
         

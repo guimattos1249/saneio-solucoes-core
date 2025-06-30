@@ -25,11 +25,12 @@ namespace SaneioSolucoes.Infrastructure.Services.LoggedUser
             var tenantId = jwtSecurityToken.Claims.First(c => c.Type == "tenant_id").Value;
 
             var userGuidId = Guid.Parse(userId);
+            var tenantGuidId = Guid.Parse(tenantId);
 
             var loggedUser = await _dbContext
                 .Users
                 .AsNoTracking()
-                .FirstAsync(user => user.Active && user.Id.Equals(userGuidId) && user.TenantId.Equals(tenantId));
+                .FirstAsync(user => user.Active && user.Id.Equals(userGuidId) && user.TenantId.Equals(tenantGuidId));
 
             return loggedUser;
         }

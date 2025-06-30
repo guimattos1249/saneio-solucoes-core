@@ -1,10 +1,11 @@
 ﻿using SaneioSolucoes.Communication.Requests;
 using SaneioSolucoes.Communication.Responses;
-using SaneioSolucoes.Domain.Repositories;
 using SaneioSolucoes.Domain.Security.Cryptography;
 using SaneioSolucoes.Domain.Security.Tokens;
 using SaneioSolucoes.Exceptions.ExceptionBase;
 using SaneioSolucoes.Exceptions;
+using SaneioSolucoes.Domain.Repositories.Tenant;
+using SaneioSolucoes.Domain.Repositories.User;
 
 namespace SaneioSolucoes.Application.UseCases.Login.DoLogin
 {
@@ -43,6 +44,7 @@ namespace SaneioSolucoes.Application.UseCases.Login.DoLogin
 
             return new ResponseRegisteredUserJson
             {
+                Id = user.Id,
                 Name = user.Name,
                 Tokens = new ResponseTokenJson
                 {

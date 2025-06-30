@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SaneioSolucoes.Domain.Repositories;
+using SaneioSolucoes.Domain.Repositories.Tenant;
+using SaneioSolucoes.Domain.Repositories.User;
 using SaneioSolucoes.Domain.Security.Cryptography;
 using SaneioSolucoes.Domain.Security.Tokens;
 using SaneioSolucoes.Domain.Services.LoggedUser;
@@ -48,6 +50,8 @@ namespace SaneioSolucoes.Infrastructure
         {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IUserReadOnlyRepository, UserRepository>();
+            services.AddScoped<IUserWriteOnlyRepository, UserRepository>();
+            services.AddScoped<IUserUpdateOnlyRepository, UserRepository>();
             services.AddScoped<ITenantReadOnlyRepository, TenantRepository>();
             services.AddScoped<ITenantWriteOnlyRepository, TenantRepository>();
         }

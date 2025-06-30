@@ -1,8 +1,10 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Configuration;
-using SaneioSolucoes.Application.UseCases.Login.DoLogin;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using SaneioSolucoes.Application.Services.AutoMapper;
+using SaneioSolucoes.Application.UseCases.Login.DoLogin;
 using SaneioSolucoes.Application.UseCases.Tenant.Register;
+using SaneioSolucoes.Application.UseCases.User.ChangePassword;
+using SaneioSolucoes.Application.UseCases.User.Register;
 
 namespace SaneioSolucoes.Application
 {
@@ -26,6 +28,8 @@ namespace SaneioSolucoes.Application
         {
             services.AddScoped<IDoLoginUseCase, DoLoginUseCase>();
             services.AddScoped<IRegisterTenantUseCase, RegisterTenantUseCase>();
+            services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
+            services.AddScoped<IChangePasswordUseCase, ChangePasswordUseCase>();
         }
     }
 }

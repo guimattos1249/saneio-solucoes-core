@@ -3,6 +3,7 @@ using SaneioSolucoes.Communication.Requests;
 using SaneioSolucoes.Communication.Responses;
 using SaneioSolucoes.Domain.Extensions;
 using SaneioSolucoes.Domain.Repositories;
+using SaneioSolucoes.Domain.Repositories.Tenant;
 using SaneioSolucoes.Exceptions;
 using SaneioSolucoes.Exceptions.ExceptionBase;
 
