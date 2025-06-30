@@ -4,6 +4,7 @@ using SaneioSolucoes.Application.Services.AutoMapper;
 using SaneioSolucoes.Application.UseCases.Login.DoLogin;
 using SaneioSolucoes.Application.UseCases.Tenant.Register;
 using SaneioSolucoes.Application.UseCases.User.ChangePassword;
+using SaneioSolucoes.Application.UseCases.User.Profile;
 using SaneioSolucoes.Application.UseCases.User.Register;
 
 namespace SaneioSolucoes.Application
@@ -30,6 +31,7 @@ namespace SaneioSolucoes.Application
             services.AddScoped<IRegisterTenantUseCase, RegisterTenantUseCase>();
             services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
             services.AddScoped<IChangePasswordUseCase, ChangePasswordUseCase>();
+            services.AddScoped<IGetUserProfileUseCase, GetUserProfileUseCase>();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SaneioSolucoes.API.Attributes;
 using SaneioSolucoes.Application.UseCases.User.ChangePassword;
+using SaneioSolucoes.Application.UseCases.User.Profile;
 using SaneioSolucoes.Application.UseCases.User.Register;
 using SaneioSolucoes.Communication.Requests;
 using SaneioSolucoes.Communication.Responses;
@@ -16,6 +17,16 @@ namespace SaneioSolucoes.API.Controllers
         [FromBody] RequestRegisterUserJson request)
         {
             var result = await useCase.Execute(request);
+
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [ProducesResponseType(typeof(ResponseUserProfileJson), StatusCodes.Status200OK)]
+        [AuthenticatedUser]
+        public async Task<IActionResult> GetUserProfile([FromServices] IGetUserProfileUseCase useCase)
+        {
+            var result = await useCase.Execute();
 
             return Ok(result);
         }

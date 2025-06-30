@@ -1,8 +1,7 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using Microsoft.IdentityModel.Tokens;
-using SaneioSolucoes.Domain.Entities;
+﻿using Microsoft.IdentityModel.Tokens;
 using SaneioSolucoes.Domain.Security.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace SaneioSolucoes.Infrastructure.Security.Tokens.Access.Validator
 {
@@ -11,6 +10,7 @@ namespace SaneioSolucoes.Infrastructure.Security.Tokens.Access.Validator
         private readonly string _signingKey = signingKey;
 
         public IAuthTokenInfo ValidateAndGetUserIdentifier(string token)
+        {
         {
             var validationParameter = new TokenValidationParameters
             {
