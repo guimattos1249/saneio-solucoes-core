@@ -183,4 +183,10 @@
   <data name="EMPTY_FILE" xml:space="preserve">
     <value>Arquivo vazio ou não enviado</value>
   </data>
+  <data name="EMPTY_TRADE_NAME" xml:space="preserve">
+    <value>Nome fantasia vazio</value>
+  </data>
+  <data name="EMPTY_LEGAL_NAME" xml:space="preserve">
+    <value>Razão social vazio</value>
+  </data>
 </root>

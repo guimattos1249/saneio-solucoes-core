@@ -8,7 +8,7 @@ namespace SaneioSolucoes.Domain.Entities
         public string? Memo { get; set; } = string.Empty;
         public long? Amount { get; set; }
         public string? Bank { get; set; } = string.Empty;
-        public string TransactionId { get; set; } = string.Empty;
+        public string? TransactionId { get; set; } = string.Empty;
         public string ServerTransactionId { get; set; } = string.Empty;
         public string AccountId { get; set; } = string.Empty;
         public TransactionType? Type { get; set; }

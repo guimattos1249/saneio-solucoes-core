@@ -1,5 +1,4 @@
 ﻿using FluentMigrator;
-using SaneioSolucoes.Domain.Enums;
 
 namespace SaneioSolucoes.Infrastructure.Migrations.Versions
 {

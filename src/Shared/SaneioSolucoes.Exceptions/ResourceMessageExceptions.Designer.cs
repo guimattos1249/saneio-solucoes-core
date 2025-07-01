@@ -106,6 +106,15 @@ namespace SaneioSolucoes.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Razão social vazio.
+        /// </summary>
+        public static string EMPTY_LEGAL_NAME {
+            get {
+                return ResourceManager.GetString("EMPTY_LEGAL_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nome vazio.
         /// </summary>
         public static string EMPTY_NAME {
@@ -129,6 +138,15 @@ namespace SaneioSolucoes.Exceptions {
         public static string EMPTY_SLUG {
             get {
                 return ResourceManager.GetString("EMPTY_SLUG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nome fantasia vazio.
+        /// </summary>
+        public static string EMPTY_TRADE_NAME {
+            get {
+                return ResourceManager.GetString("EMPTY_TRADE_NAME", resourceCulture);
             }
         }
         

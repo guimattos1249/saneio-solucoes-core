@@ -1,11 +1,8 @@
-﻿using DocumentFormat.OpenXml.Spreadsheet;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
+﻿using Microsoft.EntityFrameworkCore;
 using SaneioSolucoes.Domain.Dtos;
 using SaneioSolucoes.Domain.Entities;
 using SaneioSolucoes.Domain.Repositories.Transaction;
 using SaneioSolucoes.Infrastructure.Services.Hashs;
-using System.Collections.Generic;
 
 namespace SaneioSolucoes.Infrastructure.DataAccess.Repositories
 {
@@ -14,7 +11,7 @@ namespace SaneioSolucoes.Infrastructure.DataAccess.Repositories
         private readonly SaneioSolucoesDBContext _dbContext;
         public TransactionRepository(SaneioSolucoesDBContext dbContext) => _dbContext = dbContext;
 
-        public async Task Add(List<TransactionDto> transactions)
+        public async Task AddRange(List<TransactionDto> transactions)
         {
             var transactionsWithHash = GenerateTransactionsWithHash(transactions);
 
@@ -36,7 +33,7 @@ namespace SaneioSolucoes.Infrastructure.DataAccess.Repositories
                 .Select(transaction => (transaction, HashHelper.ComputeTransactionHash(
                         transaction.Date,
                         transaction.AccountId,
-                        transaction.TransactionId,
+                        transaction.TransactionId!,
                         transaction.ServerTransactionId,
                         transaction.UserId,
                         transaction.CompanyId,
@@ -61,12 +58,17 @@ namespace SaneioSolucoes.Infrastructure.DataAccess.Repositories
                 .Select(th => new Transaction
                 {
                     Date = th.transaction.Date,
+                    Memo = th.transaction.Memo,
+                    Amount = th.transaction.Amount,
+                    Bank = th.transaction.Bank,
                     AccountId = th.transaction.AccountId,
                     TransactionId = th.transaction.TransactionId,
                     ServerTransactionId = th.transaction.ServerTransactionId,
                     UserId = th.transaction.UserId,
                     CompanyId = th.transaction.CompanyId,
-                    TenantId = th.transaction.TenantId
+                    TenantId = th.transaction.TenantId,
+                    Type = th.transaction.Type,
+                    Hash = th.hash,
                 }).ToList();
         }
     }

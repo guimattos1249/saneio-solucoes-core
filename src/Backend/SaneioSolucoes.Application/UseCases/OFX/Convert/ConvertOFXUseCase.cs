@@ -56,7 +56,7 @@ namespace SaneioSolucoes.Application.UseCases.OFX.Convert
             if (transactions.Count == 0)
                 throw new SaneioSolucoesException(ResourceMessageExceptions.NO_TRANSACTIONS_ON_FILE);
 
-            await _transactionWriteOnlyRepository.Add(transactions);
+            await _transactionWriteOnlyRepository.AddRange(transactions);
 
             await _unitOfWork.Commit();
 
