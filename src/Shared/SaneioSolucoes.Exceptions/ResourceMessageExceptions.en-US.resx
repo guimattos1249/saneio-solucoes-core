@@ -174,4 +174,13 @@
   <data name="PASSWORD_DIFFRENT_CURRENT_PASSWORD" xml:space="preserve">
     <value>New password is different the actual password</value>
   </data>
+  <data name="FILE_NEEDS_TO_BE_SENT" xml:space="preserve">
+    <value>File needs to be sent</value>
+  </data>
+  <data name="NO_TRANSACTIONS_ON_FILE" xml:space="preserve">
+    <value>No transactions on file</value>
+  </data>
+  <data name="EMPTY_FILE" xml:space="preserve">
+    <value>Empty file or not sended</value>
+  </data>
 </root>

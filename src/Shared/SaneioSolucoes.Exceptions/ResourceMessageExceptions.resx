@@ -174,4 +174,13 @@
   <data name="PASSWORD_DIFFRENT_CURRENT_PASSWORD" xml:space="preserve">
     <value>A nova senha difere da senha atual</value>
   </data>
+  <data name="FILE_NEEDS_TO_BE_SENT" xml:space="preserve">
+    <value>O Arquivo precisa ser enviado para ser convertido</value>
+  </data>
+  <data name="NO_TRANSACTIONS_ON_FILE" xml:space="preserve">
+    <value>Nenhuma transação no arquivo</value>
+  </data>
+  <data name="EMPTY_FILE" xml:space="preserve">
+    <value>Arquivo vazio ou não enviado</value>
+  </data>
 </root>

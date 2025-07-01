@@ -97,6 +97,15 @@ namespace SaneioSolucoes.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Arquivo vazio ou não enviado.
+        /// </summary>
+        public static string EMPTY_FILE {
+            get {
+                return ResourceManager.GetString("EMPTY_FILE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nome vazio.
         /// </summary>
         public static string EMPTY_NAME {
@@ -120,6 +129,15 @@ namespace SaneioSolucoes.Exceptions {
         public static string EMPTY_SLUG {
             get {
                 return ResourceManager.GetString("EMPTY_SLUG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O Arquivo precisa ser enviado para ser convertido.
+        /// </summary>
+        public static string FILE_NEEDS_TO_BE_SENT {
+            get {
+                return ResourceManager.GetString("FILE_NEEDS_TO_BE_SENT", resourceCulture);
             }
         }
         
@@ -156,6 +174,15 @@ namespace SaneioSolucoes.Exceptions {
         public static string NO_TOKEN {
             get {
                 return ResourceManager.GetString("NO_TOKEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nenhuma transação no arquivo.
+        /// </summary>
+        public static string NO_TRANSACTIONS_ON_FILE {
+            get {
+                return ResourceManager.GetString("NO_TRANSACTIONS_ON_FILE", resourceCulture);
             }
         }
         

@@ -4,10 +4,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SaneioSolucoes.Domain.Repositories;
 using SaneioSolucoes.Domain.Repositories.Tenant;
+using SaneioSolucoes.Domain.Repositories.Transaction;
 using SaneioSolucoes.Domain.Repositories.User;
 using SaneioSolucoes.Domain.Security.Cryptography;
 using SaneioSolucoes.Domain.Security.Tokens;
 using SaneioSolucoes.Domain.Services.LoggedUser;
+using SaneioSolucoes.Domain.Services.OFX;
+using SaneioSolucoes.Domain.Services.XLS;
 using SaneioSolucoes.Infrastructure.DataAccess;
 using SaneioSolucoes.Infrastructure.DataAccess.Repositories;
 using SaneioSolucoes.Infrastructure.Extensions;
@@ -15,6 +18,8 @@ using SaneioSolucoes.Infrastructure.Security.Cryptography;
 using SaneioSolucoes.Infrastructure.Security.Tokens.Access.Generator;
 using SaneioSolucoes.Infrastructure.Security.Tokens.Access.Validator;
 using SaneioSolucoes.Infrastructure.Services.LoggedUser;
+using SaneioSolucoes.Infrastructure.Services.OFX;
+using SaneioSolucoes.Infrastructure.Services.XLS;
 using System.Reflection;
 
 namespace SaneioSolucoes.Infrastructure
@@ -27,6 +32,7 @@ namespace SaneioSolucoes.Infrastructure
             AddRepositories(services);
             AddTokens(services, configuration);
             AddLoggedUser(services);
+            AddServices(services);
 
             if (configuration.IsUnitTestEnviroment())
                 return;
@@ -54,6 +60,7 @@ namespace SaneioSolucoes.Infrastructure
             services.AddScoped<IUserUpdateOnlyRepository, UserRepository>();
             services.AddScoped<ITenantReadOnlyRepository, TenantRepository>();
             services.AddScoped<ITenantWriteOnlyRepository, TenantRepository>();
+            services.AddScoped<ITransactionWriteOnlyRepository, TransactionRepository>();
         }
 
         private static void AddFluentMigrator(IServiceCollection services, IConfiguration configuration)
@@ -83,6 +90,12 @@ namespace SaneioSolucoes.Infrastructure
             var additionalKey = configuration.GetValue<string>("Settings:Password:AdditionalKey");
 
             services.AddScoped<IPasswordEncripter>(options => new Sha512Encripter(additionalKey!));
+        }
+
+        private static void AddServices(IServiceCollection services)
+        {
+            services.AddScoped<IOFXParser, OfxParser>();
+            services.AddScoped<IXLSGenerator, XLSXGenerator>();
         }
     }
 }

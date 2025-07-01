@@ -31,15 +31,18 @@ namespace SaneioSolucoes.Infrastructure.Migrations.Versions
                 .OnDelete(System.Data.Rule.Cascade);
 
             CreateTable("Transactions")
-                .WithColumn("Date").AsDate().NotNullable()
-                .WithColumn("Memo").AsString(255).NotNullable()
-                .WithColumn("Amount").AsInt64().NotNullable()
-                .WithColumn("Bank").AsString(255).NotNullable()
+                .WithColumn("Date").AsDateTime().Nullable()
+                .WithColumn("Memo").AsString(255).Nullable()
+                .WithColumn("Amount").AsInt64().Nullable()
+                .WithColumn("Bank").AsString(255).Nullable()
                 .WithColumn("TransactionId").AsString(255).NotNullable()
+                .WithColumn("ServerTransactionId").AsString(255).NotNullable()
+                .WithColumn("AccountId").AsString(255).NotNullable()
                 .WithColumn("Type").AsInt32().Nullable()
+                .WithColumn("Hash").AsString(2000).NotNullable()
                 .WithColumn("UserId").AsGuid().NotNullable().ForeignKey("FK_Transacition_User_Id", "Users", "Id")
                 .WithColumn("CompanyId").AsGuid().NotNullable().ForeignKey("FK_Transacition_Company_Id", "Companies", "Id")
-                .WithColumn("TenentId").AsGuid().NotNullable().ForeignKey("FK_Transacition_Tenant_Id", "Tenants", "Id")
+                .WithColumn("TenantId").AsGuid().NotNullable().ForeignKey("FK_Transacition_Tenant_Id", "Tenants", "Id")
                 .OnDelete(System.Data.Rule.Cascade);
         }
     }

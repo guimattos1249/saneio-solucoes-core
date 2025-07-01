@@ -3,6 +3,6 @@
     public abstract class DatabaseVersions
     {
         public const int INITIAL_TABLES = 1;
-        public const int TENANT_PLAN = 2;
+        public const int ALTER_DATETIME = 2;
     }
 }
