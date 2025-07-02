@@ -82,7 +82,7 @@ namespace SaneioSolucoes.Application.UseCases.OFX.Convert
 
             var fileContent = _xLSGenerator.GenerateXLS(exportData);
 
-            var fileName = $"Extrato_{companyId}_{bankId}_{DateTime.Now:yyyyMMddHHmmss}.xlsx";
+            var fileName = $"Extrato_{exportData.First().CompanyName}_{exportData.First().BankName}_{DateTime.Now:yyyyMMddHHmmss}.xlsx";
 
             return new ResponseExportResult
             {

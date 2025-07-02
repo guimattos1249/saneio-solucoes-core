@@ -22,7 +22,7 @@ namespace SaneioSolucoes.Infrastructure.Services.OFX
                 {
                     Date = OfxFieldParser.ParseDate(OfxFieldParser.ExtractTag(content, "DTPOSTED")),
                     Amount = OfxFieldParser.ParseAmount(OfxFieldParser.ExtractTag(content, "TRNAMT")),
-                    Memo = OfxFieldParser.ExtractTag(content, "MEMO"),
+                    Memo = string.Join(" ", OfxFieldParser.ExtractTags(content, "MEMO")),
                     TransactionId = OfxFieldParser.ExtractTag(content, "FITID"),
                     Bank = OfxFieldParser.ExtractTag(content, "NAME") ?? OfxFieldParser.ExtractTag(content, "CHECKNUM"),
                     AccountId = OfxFieldParser.ExtractTag(content, "ACCTID") ?? string.Empty
