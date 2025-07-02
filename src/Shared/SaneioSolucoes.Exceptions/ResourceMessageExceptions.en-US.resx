@@ -195,4 +195,7 @@
   <data name="EMPTY_BANK_CODE" xml:space="preserve">
     <value>Empty bank code</value>
   </data>
+  <data name="BANK_NOT_FOUND" xml:space="preserve">
+    <value>Bank not found</value>
+  </data>
 </root>

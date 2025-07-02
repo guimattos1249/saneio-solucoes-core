@@ -26,6 +26,7 @@ namespace SaneioSolucoes.Application.Services.AutoMapper
         {
             CreateMap<Domain.Entities.User, ResponseUserProfileJson>();
             CreateMap<Domain.Entities.Company, ResponseCompanyJson>();
+            CreateMap<Domain.Entities.Bank, ResponseRegisteredBankJson>();
         }
     }
 }

@@ -1,6 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SaneioSolucoes.Application.Services.AutoMapper;
+using SaneioSolucoes.Application.UseCases.Bank.GetAll;
+using SaneioSolucoes.Application.UseCases.Bank.GetById;
+using SaneioSolucoes.Application.UseCases.Bank.Register;
 using SaneioSolucoes.Application.UseCases.Company.GetAll;
 using SaneioSolucoes.Application.UseCases.Company.GetById;
 using SaneioSolucoes.Application.UseCases.Company.Register;
@@ -40,6 +43,9 @@ namespace SaneioSolucoes.Application
             services.AddScoped<IRegisterCompanyUseCase, RegisterCompanyUseCase>();
             services.AddScoped<IGetCompanyByIdUseCase, GetCompanyByIdUseCase>();
             services.AddScoped<IGetAllCompaniesUseCase, GetAllCompaniesUseCase>();
+            services.AddScoped<IRegisterBankUseCase, RegisterBankUseCase>();
+            services.AddScoped<IGetBankByIdUseCase, GetBankByIdUseCase>();
+            services.AddScoped<IGetAllBanksUseCase, GetAllBanksUseCase>();
         }
     }
 }

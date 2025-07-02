@@ -61,6 +61,15 @@ namespace SaneioSolucoes.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Banco não encontrado.
+        /// </summary>
+        public static string BANK_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("BANK_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Empresa não encontrada.
         /// </summary>
         public static string COMPANY_NOT_FOUND {
