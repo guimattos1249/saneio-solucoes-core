@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SaneioSolucoes.Application.Services.AutoMapper;
+using SaneioSolucoes.Application.UseCases.Company.Register;
 using SaneioSolucoes.Application.UseCases.Login.DoLogin;
 using SaneioSolucoes.Application.UseCases.OFX.Convert;
 using SaneioSolucoes.Application.UseCases.Tenant.Register;
@@ -34,6 +35,7 @@ namespace SaneioSolucoes.Application
             services.AddScoped<IChangePasswordUseCase, ChangePasswordUseCase>();
             services.AddScoped<IGetUserProfileUseCase, GetUserProfileUseCase>();
             services.AddScoped<IConvertOFXUseCase, ConvertOFXUseCase>();
+            services.AddScoped<IRegisterCompanyUseCase, RegisterCompanyUseCase>();
         }
     }
 }

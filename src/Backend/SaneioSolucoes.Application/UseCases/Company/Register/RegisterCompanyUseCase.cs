@@ -32,6 +32,7 @@ namespace SaneioSolucoes.Application.UseCases.Company.Register
             var loggedUser = await _loggedUser.User();
 
             var company = _mapper.Map<Domain.Entities.Company>(request);
+            company.TenantId = loggedUser.TenantId;
 
             await _companyWriteOnlyRepository.Add(company);
 

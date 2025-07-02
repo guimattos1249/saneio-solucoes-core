@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SaneioSolucoes.API.Attributes;
 using SaneioSolucoes.Application.UseCases.Company.Register;
-using SaneioSolucoes.Application.UseCases.User.Register;
 using SaneioSolucoes.Communication.Requests;
 using SaneioSolucoes.Communication.Responses;
 
 namespace SaneioSolucoes.API.Controllers
 {
+    [AuthenticatedUser]
     public class CompanyController : SaneioSolucoesBaseController
     {
         [HttpPost]

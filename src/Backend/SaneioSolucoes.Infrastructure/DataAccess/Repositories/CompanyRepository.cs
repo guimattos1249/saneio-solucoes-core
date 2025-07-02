@@ -14,7 +14,7 @@ namespace SaneioSolucoes.Infrastructure.DataAccess.Repositories
             await _dbContext
                 .Companies
                 .AsNoTracking()
-                .Where(company => company.Active && company.TenentId == tenantId)
+                .Where(company => company.Active && company.TenantId == tenantId)
                 .OrderByDescending(company => company.CreatedOn)
                 .ToListAsync();
 
@@ -23,7 +23,7 @@ namespace SaneioSolucoes.Infrastructure.DataAccess.Repositories
                 .Companies
                 .AsNoTracking()
                 .FirstOrDefaultAsync(company => company.Active &&
-                                                company.TenentId == tenantId &&
+                                                company.TenantId == tenantId &&
                                                 company.Id == companyId);
     }
 }
