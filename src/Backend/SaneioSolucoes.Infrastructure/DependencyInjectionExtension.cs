@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SaneioSolucoes.Domain.Repositories;
+using SaneioSolucoes.Domain.Repositories.Bank;
 using SaneioSolucoes.Domain.Repositories.Company;
 using SaneioSolucoes.Domain.Repositories.Tenant;
 using SaneioSolucoes.Domain.Repositories.Transaction;
@@ -64,6 +65,8 @@ namespace SaneioSolucoes.Infrastructure
             services.AddScoped<ITransactionWriteOnlyRepository, TransactionRepository>();
             services.AddScoped<ICompanyWriteOnlyRepository, CompanyRepository>();
             services.AddScoped<ICompanyReadOnlyRepository, CompanyRepository>();
+            services.AddScoped<IBankWriteOnlyRepository, BankRepository>();
+            services.AddScoped<IBankReadOnlyRepository, BankRepository>();
         }
 
         private static void AddFluentMigrator(IServiceCollection services, IConfiguration configuration)
