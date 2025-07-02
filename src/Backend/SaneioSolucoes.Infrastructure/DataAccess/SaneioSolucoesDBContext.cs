@@ -11,6 +11,7 @@ namespace SaneioSolucoes.Infrastructure.DataAccess
         public DbSet<User> Users { get; set; }
         public DbSet<Company> Companies { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<Bank> Banks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
