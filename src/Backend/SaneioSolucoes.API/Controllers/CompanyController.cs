@@ -12,7 +12,7 @@ namespace SaneioSolucoes.API.Controllers
     public class CompanyController : SaneioSolucoesBaseController
     {
         [HttpPost]
-        [ProducesResponseType(typeof(ResponseRegisteredUserJson), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(ResponseRegisteredCompanyJson), StatusCodes.Status201Created)]
         public async Task<IActionResult> Register(
         [FromServices] IRegisterCompanyUseCase useCase,
         [FromBody] RequestRegisterCompnay request)
