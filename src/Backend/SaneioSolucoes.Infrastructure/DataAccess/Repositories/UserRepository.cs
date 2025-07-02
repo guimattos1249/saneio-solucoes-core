@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DocumentFormat.OpenXml.InkML;
+using Microsoft.EntityFrameworkCore;
 using SaneioSolucoes.Domain.Entities;
 using SaneioSolucoes.Domain.Repositories.User;
 
@@ -41,5 +42,10 @@ namespace SaneioSolucoes.Infrastructure.DataAccess.Repositories
                     .FirstAsync(user => user.Active && user.Id == userId && user.TenantId == tenantId);
 
         public void Update(User user) => _dbContext.Users.Update(user);
+
+        public async Task<Dictionary<Guid, string>> GetNameDictionary(IEnumerable<Guid> ids) =>
+            await _dbContext.Users
+            .Where(u => ids.Contains(u.Id))
+            .ToDictionaryAsync(u => u.Id, u => u.Name);
     }
 }

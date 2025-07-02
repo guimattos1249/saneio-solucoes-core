@@ -61,6 +61,24 @@ namespace SaneioSolucoes.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Banco não encontrado.
+        /// </summary>
+        public static string BANK_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("BANK_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Empresa não encontrada.
+        /// </summary>
+        public static string COMPANY_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("COMPANY_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Descrição vazia.
         /// </summary>
         public static string DESCRIPTION_EMPTY {
@@ -88,6 +106,15 @@ namespace SaneioSolucoes.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Código do banco vazio.
+        /// </summary>
+        public static string EMPTY_BANK_CODE {
+            get {
+                return ResourceManager.GetString("EMPTY_BANK_CODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email Vazio.
         /// </summary>
         public static string EMPTY_EMAIL {
@@ -102,6 +129,15 @@ namespace SaneioSolucoes.Exceptions {
         public static string EMPTY_FILE {
             get {
                 return ResourceManager.GetString("EMPTY_FILE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Razão social vazio.
+        /// </summary>
+        public static string EMPTY_LEGAL_NAME {
+            get {
+                return ResourceManager.GetString("EMPTY_LEGAL_NAME", resourceCulture);
             }
         }
         
@@ -129,6 +165,15 @@ namespace SaneioSolucoes.Exceptions {
         public static string EMPTY_SLUG {
             get {
                 return ResourceManager.GetString("EMPTY_SLUG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nome fantasia vazio.
+        /// </summary>
+        public static string EMPTY_TRADE_NAME {
+            get {
+                return ResourceManager.GetString("EMPTY_TRADE_NAME", resourceCulture);
             }
         }
         

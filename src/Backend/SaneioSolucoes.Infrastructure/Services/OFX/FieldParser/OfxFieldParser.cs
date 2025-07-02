@@ -1,4 +1,4 @@
-﻿using SaneioSolucoes.Infrastructure.Utils;
+﻿using SaneioSolucoes.Domain.Utils;
 using System.Text.RegularExpressions;
 
 namespace SaneioSolucoes.Infrastructure.Services.OFX.FieldParser
@@ -9,6 +9,14 @@ namespace SaneioSolucoes.Infrastructure.Services.OFX.FieldParser
         {
             var match = Regex.Match(content, $"<{tag}>(.*?)($|<)", RegexOptions.IgnoreCase);
             return match.Success ? match.Groups[1].Value.Trim() : null;
+        }
+
+        public static List<string> ExtractTags(string content, string tag)
+        {
+            var matches = Regex.Matches(content, $"<{tag}>([^\r\n<]*)", RegexOptions.IgnoreCase);
+            return [.. matches.Cast<Match>()
+                          .Select(m => m.Groups[1].Value.Trim())
+                          .Where(v => !string.IsNullOrWhiteSpace(v))];
         }
 
         public static DateTime? ParseDate(string? rawDate)

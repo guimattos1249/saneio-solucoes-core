@@ -183,4 +183,19 @@
   <data name="EMPTY_FILE" xml:space="preserve">
     <value>Arquivo vazio ou não enviado</value>
   </data>
+  <data name="EMPTY_TRADE_NAME" xml:space="preserve">
+    <value>Nome fantasia vazio</value>
+  </data>
+  <data name="EMPTY_LEGAL_NAME" xml:space="preserve">
+    <value>Razão social vazio</value>
+  </data>
+  <data name="COMPANY_NOT_FOUND" xml:space="preserve">
+    <value>Empresa não encontrada</value>
+  </data>
+  <data name="EMPTY_BANK_CODE" xml:space="preserve">
+    <value>Código do banco vazio</value>
+  </data>
+  <data name="BANK_NOT_FOUND" xml:space="preserve">
+    <value>Banco não encontrado</value>
+  </data>
 </root>

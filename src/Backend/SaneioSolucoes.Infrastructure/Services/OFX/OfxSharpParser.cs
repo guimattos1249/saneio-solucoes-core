@@ -3,7 +3,7 @@ using SaneioSolucoes.Domain.Services.OFX;
 using OfxSharp;
 using SaneioSolucoes.Exceptions.ExceptionBase;
 using SaneioSolucoes.Exceptions;
-using SaneioSolucoes.Infrastructure.Utils;
+using SaneioSolucoes.Domain.Utils;
 using DocumentFormat.OpenXml.Drawing;
 
 
