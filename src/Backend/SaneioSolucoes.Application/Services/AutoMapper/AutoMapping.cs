@@ -24,6 +24,7 @@ namespace SaneioSolucoes.Application.Services.AutoMapper
         private void DomainToResponse()
         {
             CreateMap<Domain.Entities.User, ResponseUserProfileJson>();
+            CreateMap<Domain.Entities.Company, ResponseCompanyJson>();
         }
     }
 }
