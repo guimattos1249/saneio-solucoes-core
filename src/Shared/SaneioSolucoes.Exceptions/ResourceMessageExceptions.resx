@@ -192,4 +192,7 @@
   <data name="COMPANY_NOT_FOUND" xml:space="preserve">
     <value>Empresa não encontrada</value>
   </data>
+  <data name="EMPTY_BANK_CODE" xml:space="preserve">
+    <value>Código do banco vazio</value>
+  </data>
 </root>

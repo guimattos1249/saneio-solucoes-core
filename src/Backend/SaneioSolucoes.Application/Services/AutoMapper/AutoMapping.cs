@@ -19,6 +19,7 @@ namespace SaneioSolucoes.Application.Services.AutoMapper
             CreateMap<RequestRegisterUserJson, Domain.Entities.User>()
                 .ForMember(dest => dest.Password, opt => opt.Ignore());
             CreateMap<RequestRegisterCompnay, Domain.Entities.Company>();
+            CreateMap<RequestRegisterBankJson, Domain.Entities.Bank>();
         }
 
         private void DomainToResponse()

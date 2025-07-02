@@ -97,6 +97,15 @@ namespace SaneioSolucoes.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Código do banco vazio.
+        /// </summary>
+        public static string EMPTY_BANK_CODE {
+            get {
+                return ResourceManager.GetString("EMPTY_BANK_CODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email Vazio.
         /// </summary>
         public static string EMPTY_EMAIL {
