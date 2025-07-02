@@ -1,15 +1,14 @@
 ﻿using ClosedXML.Excel;
-using DocumentFormat.OpenXml.Spreadsheet;
 using SaneioSolucoes.Domain.Dtos;
 using SaneioSolucoes.Domain.Services.XLS;
-using SaneioSolucoes.Infrastructure.Utils;
+using SaneioSolucoes.Domain.Utils;
 using System.Data;
 
 namespace SaneioSolucoes.Infrastructure.Services.XLS
 {
     public class XLSXGenerator : IXLSGenerator
     {
-        public byte[] GenerateXLS(List<TransactionDto> transactions)
+        public byte[] GenerateXLS(List<TransactionExportDto> transactions)
         {
             var datas = GetDataTable(transactions);
             using (XLWorkbook workbook = new XLWorkbook())
@@ -26,7 +25,7 @@ namespace SaneioSolucoes.Infrastructure.Services.XLS
             }
         }
 
-        private DataTable GetDataTable(List<TransactionDto> transactions)
+        private DataTable GetDataTable(List<TransactionExportDto> transactions)
         {
             DataTable dataTable = new DataTable();
 
@@ -50,9 +49,9 @@ namespace SaneioSolucoes.Infrastructure.Services.XLS
                         "",
                         ((decimal)transaction.Amount) / Constants.MoneyScaleConverter,
                         transaction.TransactionId,
-                        transaction.CompanyId,
-                        transaction.UserId,
-                        transaction.BankId);
+                        transaction.CompanyName,
+                        transaction.UserName,
+                        transaction.BankName);
                 });
             }
 

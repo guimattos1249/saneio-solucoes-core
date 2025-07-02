@@ -1,13 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DocumentFormat.OpenXml.InkML;
+using Microsoft.EntityFrameworkCore;
 using SaneioSolucoes.Domain.Entities;
 using SaneioSolucoes.Domain.Repositories.Company;
 
 namespace SaneioSolucoes.Infrastructure.DataAccess.Repositories
 {
-    internal class CompanyRepository : ICompanyReadOnlyRepository, ICompanyWriteOnlyRepository
+    public class CompanyRepository : ICompanyReadOnlyRepository, ICompanyWriteOnlyRepository
     {
         private readonly SaneioSolucoesDBContext _dbContext;
         public CompanyRepository(SaneioSolucoesDBContext dbContext) => _dbContext = dbContext;
+        
         public async Task Add(Company company) => await _dbContext.Companies.AddAsync(company);
 
         public async Task<IList<Company>> GetAll(Guid tenantId) =>
@@ -25,5 +27,10 @@ namespace SaneioSolucoes.Infrastructure.DataAccess.Repositories
                 .FirstOrDefaultAsync(company => company.Active &&
                                                 company.TenantId == tenantId &&
                                                 company.Id == companyId);
+
+        public async Task<Dictionary<Guid, string>> GetTradeNameDictionary(IEnumerable<Guid> ids) =>
+            await _dbContext.Companies
+            .Where(c => ids.Contains(c.Id))
+            .ToDictionaryAsync(c => c.Id, c => c.TradeName);
     }
 }

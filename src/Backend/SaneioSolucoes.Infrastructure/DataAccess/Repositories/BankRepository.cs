@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DocumentFormat.OpenXml.InkML;
+using Microsoft.EntityFrameworkCore;
 using SaneioSolucoes.Domain.Entities;
 using SaneioSolucoes.Domain.Repositories.Bank;
 
@@ -26,5 +27,10 @@ namespace SaneioSolucoes.Infrastructure.DataAccess.Repositories
                 .FirstOrDefaultAsync(bank => bank.Active &&
                                              bank.TenantId == tenantId &&
                                              bank.Id == bankId);
+
+        public async Task<Dictionary<Guid, string>> GetLegalNameDictionary(IEnumerable<Guid> ids) =>
+            await _dbContext.Banks
+            .Where(b => ids.Contains(b.Id))
+            .ToDictionaryAsync(b => b.Id, b => b.LegalName);
     }
 }

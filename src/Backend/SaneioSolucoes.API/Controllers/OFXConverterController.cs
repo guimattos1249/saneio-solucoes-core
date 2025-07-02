@@ -19,12 +19,12 @@ namespace SaneioSolucoes.API.Controllers
         [FromRoute] Guid companyId,
         [FromRoute] Guid bankId)
         {
-            var fileBytes = await useCase.Execute(requestFrom, companyId, bankId);
+            var result = await useCase.Execute(requestFrom, companyId, bankId);
 
             return File(
-                fileBytes,
+                result.FileContent,
                 contentType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                fileDownloadName: $"{companyId}_{bankId}_{DateTime.Now:yyyyMMddHHmmss}.xlsx"
+                fileDownloadName: result.FileName
             );
         }
     }

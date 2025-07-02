@@ -1,4 +1,4 @@
-﻿namespace SaneioSolucoes.Infrastructure.Utils
+﻿namespace SaneioSolucoes.Domain.Utils
 {
     public static class Constants
     {

@@ -4,6 +4,6 @@ namespace SaneioSolucoes.Domain.Services.XLS
 {
     public interface IXLSGenerator
     {
-        byte[] GenerateXLS(List<TransactionDto> transactions);
+        byte[] GenerateXLS(List<TransactionExportDto> transactions);
     }
 }

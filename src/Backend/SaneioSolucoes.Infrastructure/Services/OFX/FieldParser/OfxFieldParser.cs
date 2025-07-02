@@ -1,4 +1,4 @@
-﻿using SaneioSolucoes.Infrastructure.Utils;
+﻿using SaneioSolucoes.Domain.Utils;
 using System.Text.RegularExpressions;
 
 namespace SaneioSolucoes.Infrastructure.Services.OFX.FieldParser
